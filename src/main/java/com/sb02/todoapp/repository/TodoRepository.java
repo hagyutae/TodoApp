@@ -1,4 +1,10 @@
 package com.sb02.todoapp.repository;
 
-public class TodoRepository {
+import com.sb02.todoapp.entities.Todo;
+
+import java.util.List;
+
+public interface TodoRepository {
+    Todo save(Todo todo);
+    List<Todo> findAll();
 }
