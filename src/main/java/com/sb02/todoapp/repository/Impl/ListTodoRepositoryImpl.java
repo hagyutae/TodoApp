@@ -5,12 +5,9 @@ import com.sb02.todoapp.repository.TodoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
-@Repository
+//@Repository
 public class ListTodoRepositoryImpl implements TodoRepository {
 
     private final List<TodoEntity> todoList = new ArrayList<>();

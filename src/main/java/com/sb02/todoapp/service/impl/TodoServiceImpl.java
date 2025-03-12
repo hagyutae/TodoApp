@@ -12,7 +12,7 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class ListTodoServiceImpl implements TodoService {
+public class TodoServiceImpl implements TodoService {
 
     private final TodoRepository todoRepository;
 
@@ -23,12 +23,11 @@ public class ListTodoServiceImpl implements TodoService {
 
     @Override
     public Map<String, List<TodoEntity>> findAll() {
-        //Map<String, List<TodoEntity>> GroupingByName = todoRepository.findAll().stream()
-        //        .collect(Collectors.groupingBy(TodoEntity::getName));
-        //System.out.println(GroupingByName);
         Map<String, List<TodoEntity>> findAll = new HashMap<>();
         findAll.put("todos", todoRepository.findAll());
         System.out.println(findAll);
         return findAll;
+        //return Map<String, List<TodoEntity>> GroupingByName = todoRepository.findAll().stream()
+        //        .collect(Collectors.groupingBy(TodoEntity::getName));
     }
 }

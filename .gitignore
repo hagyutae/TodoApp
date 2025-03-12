@@ -26,6 +26,9 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
+### resource ###
+src/main/resources/todoList
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

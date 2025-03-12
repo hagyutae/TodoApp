@@ -5,7 +5,6 @@ import com.sb02.todoapp.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +21,6 @@ public class TodoRestController {
         String description = request.get("description");
         todoService.save(name, description);
         return new TodoEntity(name, description);
-
     }
 
     @GetMapping
