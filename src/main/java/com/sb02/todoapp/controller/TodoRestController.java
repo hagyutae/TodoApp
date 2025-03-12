@@ -17,14 +17,14 @@ public class TodoRestController {
         this.todoService = todoService;
     }
 
+    @PostMapping
+    public Todo addTodo(@RequestBody Todo todo){
+        return todoService.addTodo(todo);
+    }
+
     @GetMapping
     public List<Todo> getAllTodos(){
         return todoService.getAllTodos();
     }
 
-    @PostMapping
-    public Todo addTodo(@RequestBody Todo todo){
-        return todoService.addTodo(todo);
-
-    }
 }
