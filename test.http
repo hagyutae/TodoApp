@@ -1,0 +1,12 @@
+### POST 테스트
+POST http://localhost:8080/api/todos
+Content-Type: application/json
+
+{
+  "name": "test",
+  "description": "test"
+}
+###
+GET http://localhost:8080/api/todos
+Content-Type: application/json
+###
