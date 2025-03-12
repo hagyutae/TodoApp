@@ -23,12 +23,11 @@
                         const deleteButton = document.createElement('button');
                         deleteButton.type = 'button';
                         deleteButton.textContent = '🚀';
-                        console.log(todo);
                         deleteButton.onclick = function() {
                             fetch(`api/todos/${todo.id}`, {
                                 method: 'DELETE'
                             }).then(response => {
-                                console.log(response);
+                                console.log(`${todo.name} - ${todo.description} 삭제됨`);
                                 loadTodos();
                             }).catch(error => {
                                 console.error('Error loading todos:', error);
@@ -64,6 +63,7 @@
                     if (!response.ok) {
                         throw new Error('서버 응답 오류');
                     }
+                    console.log(`${name} - ${description} 생성됨`);
                     return response.json();
                 })
                 .then(data => {

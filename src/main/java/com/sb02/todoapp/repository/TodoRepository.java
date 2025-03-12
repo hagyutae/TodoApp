@@ -7,7 +7,7 @@ import java.util.*;
 
 @Repository
 public class TodoRepository {
-    private final Map<String, Todo> todos = new HashMap<>();
+    private final Map<String, Todo> todos = new TreeMap<>();
 
     public List<Todo> findAll() {
         return new ArrayList<>(todos.values());
