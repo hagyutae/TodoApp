@@ -13,7 +13,7 @@ public class TodoServiceImpl implements TodoService {
 
     private final TodoRepository todoRepository;
 
-    public List<Todo> getAllTodos() {
+    public List<Todo> getTodoList() {
         return todoRepository.findAll();
     }
 

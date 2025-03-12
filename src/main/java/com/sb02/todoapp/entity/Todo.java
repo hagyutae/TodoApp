@@ -19,12 +19,4 @@ public class Todo {
         this.createdAt = LocalDateTime.now();
     }
 
-    @Override
-    public String toString() {
-        return "TodoEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

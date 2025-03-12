@@ -19,7 +19,7 @@ public class TodoRestController {
 
     @GetMapping
     public ResponseEntity<Map<String, Object>> getTodos() {
-        List<Todo> todos = todoService.getAllTodos();
+        List<Todo> todos = todoService.getTodoList();
 
         Map<String, Object> response = new HashMap<>();
         response.put("todos", todos);
@@ -32,6 +32,7 @@ public class TodoRestController {
         Todo savedTodo = todoService.addTodo(requestDto.name(), requestDto.description());
         return ResponseEntity.ok(convertEntityToDto(savedTodo));
     }
+
 
     private static TodoResponseDto convertEntityToDto(Todo entity){
         return new TodoResponseDto(entity.getId(), entity.getName(), entity.getDescription());

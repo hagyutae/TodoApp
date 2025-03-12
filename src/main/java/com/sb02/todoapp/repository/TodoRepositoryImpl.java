@@ -8,18 +8,18 @@ import java.util.*;
 @Repository
 public class TodoRepositoryImpl implements TodoRepository {
 
-    private final Map<UUID, Todo> todoMap = new HashMap<>();
+    private final Map<UUID, Todo> map = new HashMap<>();
 
     @Override
     public List<Todo> findAll() {
-        return todoMap.values().stream()
+        return map.values().stream()
                 .sorted(Comparator.comparing(Todo::getCreatedAt).reversed())
                 .toList();
     }
 
     @Override
     public Todo save(Todo todo) {
-        todoMap.put(todo.getId(), todo);
+        map.put(todo.getId(), todo);
         return todo;
     }
 }
