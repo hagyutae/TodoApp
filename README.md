@@ -10,4 +10,4 @@
 - [x] ResponseEntity.ok
 - [ ] 롬복
 - [x] 공통 api경로 Controller 위에 붙이기
-- [ ] 레포지토리 인터페이스
+- [ ] 레포지토리, 서비스 인터페이스
