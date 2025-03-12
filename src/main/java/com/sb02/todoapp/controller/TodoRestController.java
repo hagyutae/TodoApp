@@ -19,8 +19,6 @@ public class TodoRestController {
 
     @GetMapping
     public List<Todo> getTodos(){
-        List<Todo> todos = todoService.getAll();
-        System.out.println("서버에서 반환하는 TODO 목록: " + todos); // 📌 서버 로그 확인
         return todoService.getAll();
     }
 
