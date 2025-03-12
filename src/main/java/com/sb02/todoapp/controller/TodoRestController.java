@@ -2,7 +2,10 @@ package com.sb02.todoapp.controller;
 
 import com.sb02.todoapp.application.TodoCreationDto;
 import com.sb02.todoapp.application.TodoDto;
+import com.sb02.todoapp.application.TodosDto;
 import com.sb02.todoapp.service.TodoService;
+import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +21,10 @@ public class TodoRestController {
     @PostMapping("/api/todos")
     public TodoDto createTodo(@RequestBody TodoCreationDto todoCreationDto) {
         return todoService.createTodo(todoCreationDto);
+    }
+
+    @GetMapping("/api/todos")
+    public TodosDto findAll() {
+        return todoService.findAll();
     }
 }
