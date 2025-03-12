@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/todos")
 public class TodoRestController {
     private final TodoService todoService;
 
@@ -19,12 +21,12 @@ public class TodoRestController {
         this.todoService = todoService;
     }
 
-    @PostMapping("/api/todos")
+    @PostMapping
     public ResponseEntity<TodoDto> createTodo(@RequestBody TodoCreationDto todoCreationDto) {
         return ResponseEntity.ok(todoService.createTodo(todoCreationDto));
     }
 
-    @GetMapping("/api/todos")
+    @GetMapping
     public ResponseEntity<TodosDto> findAll() {
         return ResponseEntity.ok(todoService.findAll());
     }
