@@ -16,12 +16,11 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    public Todo save(Todo todo) {
+    public void save(Todo todo) {
         todoRepository.save(todo);
-        return todo;
     }
 
-    public List<Todo> getTodos(){
-        return todoRepository.getTodos();
+    public List<Todo> getData(){
+        return todoRepository.getData();
     }
 }

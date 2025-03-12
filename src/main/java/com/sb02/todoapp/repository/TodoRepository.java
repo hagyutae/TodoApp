@@ -14,12 +14,11 @@ public class TodoRepository {
         this.data = new ArrayList<>();
     }
 
-    public Todo save(Todo todo){
+    public void save(Todo todo){
         data.add(todo);
-        return todo;
     }
 
-    public List<Todo> getTodos(){
+    public List<Todo> getData(){
         return this.data;
     }
 }
