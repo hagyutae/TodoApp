@@ -1,27 +1,19 @@
 package com.sb02.todoapp.model;
 
-public class ToDo {
-    private String name;
-    private String description;
+import java.util.List;
 
-    public ToDo(String name, String description) {
-        this.name = name;
-        this.description = description;
+public class ToDos {
+    private List<ToDo> todos;
+
+    public ToDos(List<ToDo> todos) {
+        this.todos = todos;
     }
 
-    public String getName() {
-        return name;
+    public List<ToDo> getTodos() {
+        return todos;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTodos(List<ToDo> todos) {
+        this.todos = todos;
     }
 }
