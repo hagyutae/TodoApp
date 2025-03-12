@@ -16,7 +16,7 @@
                 .then(data => {
                     const todoList = document.getElementById('todoList');
                     todoList.innerHTML = ''; // 기존 목록 초기화
-                    data.todos.forEach(todo => {
+                    data.forEach(todo => {
                         const li = document.createElement('li');
                         li.innerHTML = `<strong>${todo.name}</strong> - ${todo.description}`;
                         todoList.appendChild(li);
@@ -40,18 +40,17 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name: name, description: description })
+                body: JSON.stringify({ name: name, description: description})
             })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('서버 응답 오류');
                     }
-                    return response.json();
+                    return response.json(); // 응답을 JSON으로 변환
                 })
                 .then(data => {
-                    // 새로운 항목 추가 후 전체 목록 갱신
-                    loadTodos();
-                    document.getElementById('todoForm').reset();
+                    loadTodos(); // 새로운 항목 추가 후 목록 갱신
+                    document.getElementById('todoForm').reset(); // 폼 초기화
                 })
                 .catch(error => {
                     console.error('Error:', error);
