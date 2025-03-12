@@ -3,16 +3,17 @@ package com.sb02.todoapp;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.context.annotation.Bean;
 
-import java.util.UUID;
+import java.util.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Todo {
-    private UUID id;
+
+public class TodoDto {
     private String name;
     private String description;
 
 
-} 
+
+}
+
