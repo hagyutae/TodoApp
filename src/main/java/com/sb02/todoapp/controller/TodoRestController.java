@@ -4,6 +4,7 @@ import com.sb02.todoapp.application.TodoCreationDto;
 import com.sb02.todoapp.application.TodoDto;
 import com.sb02.todoapp.application.TodosDto;
 import com.sb02.todoapp.service.TodoServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,12 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/todos")
+@RequiredArgsConstructor
 public class TodoRestController {
     private final TodoServiceImpl todoService;
-
-    public TodoRestController(TodoServiceImpl todoService) {
-        this.todoService = todoService;
-    }
 
     @PostMapping
     public ResponseEntity<TodoDto> createTodo(@RequestBody TodoCreationDto todoCreationDto) {

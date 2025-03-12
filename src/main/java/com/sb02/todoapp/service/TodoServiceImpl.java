@@ -6,15 +6,13 @@ import com.sb02.todoapp.application.TodosDto;
 import com.sb02.todoapp.domain.Todo;
 import com.sb02.todoapp.repository.TodoRepositoryImpl;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TodoServiceImpl implements TodoService{
+@RequiredArgsConstructor
+public class TodoServiceImpl implements TodoService {
     private final TodoRepositoryImpl todoRepositoryImpl;
-
-    public TodoServiceImpl(TodoRepositoryImpl todoRepositoryImpl) {
-        this.todoRepositoryImpl = todoRepositoryImpl;
-    }
 
     public TodoDto createTodo(TodoCreationDto todoCreationDto) {
         Todo todo = new Todo(todoCreationDto.name(), todoCreationDto.description());
