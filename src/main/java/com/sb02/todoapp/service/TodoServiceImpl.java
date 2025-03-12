@@ -5,6 +5,7 @@ import com.sb02.todoapp.application.TodoDto;
 import com.sb02.todoapp.application.TodosDto;
 import com.sb02.todoapp.domain.Todo;
 import com.sb02.todoapp.repository.TodoRepositoryImpl;
+import java.util.Comparator;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ public class TodoServiceImpl implements TodoService {
     public TodosDto findAll() {
         List<TodoDto> todos = todoRepositoryImpl.findAll()
                 .stream()
+                .sorted(Comparator.comparing(Todo::getCreatedAt))
                 .map(TodoDto::fromEntity)
                 .toList();
 
