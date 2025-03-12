@@ -19,6 +19,23 @@
                     data.todos.forEach(todo => {
                         const li = document.createElement('li');
                         li.innerHTML = `<strong>${todo.name}</strong> - ${todo.description}`;
+
+                        const deleteButton = document.createElement('button');
+                        deleteButton.type = 'button';
+                        deleteButton.textContent = '🚀';
+                        deleteButton.onclick = function() {
+                            fetch(`api/todos/${todo.id}`, {
+                                method: 'DELETE'
+                            }).then(response => {
+                                console.log(`${todo.name} - ${todo.description} 삭제됨`);
+                                loadTodos();
+                            }).catch(error => {
+                                console.error('Error loading todos:', error);
+                                alert('삭제 실패');
+                            });
+                        };
+                        li.appendChild(deleteButton);
+
                         todoList.appendChild(li);
                     });
                 })
@@ -46,6 +63,7 @@
                     if (!response.ok) {
                         throw new Error('서버 응답 오류');
                     }
+                    console.log(`${name} - ${description} 생성됨`);
                     return response.json();
                 })
                 .then(data => {
