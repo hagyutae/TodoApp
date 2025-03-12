@@ -7,13 +7,17 @@ import java.util.*;
 
 @Repository
 public class TodoRepository {
-    private final List<Todo> todos = new ArrayList<>();
+    private final Map<String, Todo> todos = new HashMap<>();
 
     public List<Todo> findAll() {
-        return new ArrayList<>(todos);
+        return new ArrayList<>(todos.values());
     }
 
     public void save(Todo todo) {
-        todos.add(todo);
+        todos.put(todo.getId(), todo);
+    }
+
+    public void deleteById(String id) {
+        todos.remove(id);
     }
 }

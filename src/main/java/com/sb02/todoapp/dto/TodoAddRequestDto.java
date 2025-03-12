@@ -2,7 +2,7 @@ package com.sb02.todoapp.dto;
 
 import com.sb02.todoapp.entity.Todo;
 
-public record TodoRequestDto(
+public record TodoAddRequestDto(
         String name,
         String description
 ) {

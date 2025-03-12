@@ -1,10 +1,11 @@
 package com.sb02.todoapp.controller;
 
-import com.sb02.todoapp.dto.TodoRequestDto;
+import com.sb02.todoapp.dto.TodoAddRequestDto;
 import com.sb02.todoapp.dto.TodoResponseDto;
 import com.sb02.todoapp.dto.TodosResponseDto;
 import com.sb02.todoapp.service.TodoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +24,14 @@ public class TodoRestController {
     }
 
     @PostMapping()
-    public TodoResponseDto addTodo(@RequestBody TodoRequestDto todoRequestDto) {
-        return todoService.addTodo(todoRequestDto);
+    public TodoResponseDto addTodo(@RequestBody TodoAddRequestDto todoAddRequestDto) {
+        return todoService.addTodo(todoAddRequestDto);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteTodo(@PathVariable String id) {
+        todoService.deleteTodo(id);
+        return ResponseEntity.ok(id + "  삭제");
+    }
+
 }
